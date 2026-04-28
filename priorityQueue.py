@@ -56,6 +56,19 @@ class PriorityQueue:
              self._sift_down(smallest) 
                
 
+     def Pop(self):
+    
+        en_kucuk = self.array[0] 
+    
+  
+        sonuncu = self.array.pop() 
+        if len(self.array) > 0:
+             self.array[0] = sonuncu
+        
+        
+             self._sift_down(0) 
+        
+        return en_kucuk
 
 
 
