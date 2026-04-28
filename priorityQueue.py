@@ -75,6 +75,7 @@ class PriorityQueue:
     
   
         sonuncu = self.array.pop() 
+        self.number -= 1
         if len(self.array) > 0:
              self.array[0] = sonuncu
         

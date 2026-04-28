@@ -5,10 +5,10 @@ from priorityQueue import Node
 class HuffmanCodec:
     def __init__(self, file_path):
         self.file_path = file_path
-        self.pq = PriorityQueue()  # Senin yazdığın o meşhur yapı
-        self.codes = {}            # Karakter -> Binary eşleşmesi (a: 010 gibi)
-        self.reverse_codes = {}    # Binary -> Karakter eşleşmesi (010: a gibi)
-
+        self.pq = PriorityQueue()  
+        self.codes = {}           
+        self.reverse_codes = {}  
+        self.root = None  
     def _get_frequencies(self):
         
     
@@ -39,8 +39,8 @@ class HuffmanCodec:
         
        while(self.pq.number > 1):
 
-         left_node = self.pq.pop()
-         right_node = self.pq.pop()
+         left_node = self.pq.Pop()
+         right_node = self.pq.Pop()
 
          merged_freq = left_node.freq + right_node.freq
          parent_node = Node(None, merged_freq)
@@ -50,8 +50,8 @@ class HuffmanCodec:
 
          self.pq.Push(parent_node)
 
-       return self.pq.Pop()
-
+       self.root = self.pq.Pop() 
+       return self.root
          
 
 
@@ -96,7 +96,7 @@ class HuffmanCodec:
 
     def decode(self, encoded_text):
         decoded_output = ""
-        current_node = root  
+        current_node = self.root  
     
         for bit in encoded_text:
            if bit == '0':
@@ -107,7 +107,7 @@ class HuffmanCodec:
        
            if current_node.char is not None:
               decoded_output += current_node.char 
-              current_node = root  #
+              current_node = self.root  
             
         return decoded_output
     
