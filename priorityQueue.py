@@ -1,3 +1,16 @@
+class Node:
+    def __init__(self, char, freq):
+        self.char = char    # Karakter (örneğin 'a')
+        self.freq = freq    # Frekansı (örneğin 5)
+        self.left = None    # Sol çocuk
+        self.right = None   # Sağ çocuk
+
+
+
+
+
+
+
 class PriorityQueue:
      def __init__(self):
        
@@ -71,5 +84,22 @@ class PriorityQueue:
         return en_kucuk
 
 
-
+""" test verisi (node)
     
+pq = PriorityQueue()
+
+
+
+n1 = Node('a', 10)
+n2 = Node('b', 5)
+n3 = Node('c', 20)
+
+pq.Push(n1)
+pq.Push(n2)
+pq.Push(n3)
+
+# Şimdi Pop yaptığında hata almayacaksın
+en_kucuk = pq.Pop()
+print(f"Karakter: {en_kucuk.char}, Frekans: {en_kucuk.freq}")
+
+"""
