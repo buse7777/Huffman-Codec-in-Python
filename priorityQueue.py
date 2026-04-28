@@ -36,12 +36,24 @@ class PriorityQueue:
            self._sift_up(parent_index)
 
 
+     def _sift_down(self, index):
+          smallest = index
+          left = 2 * index + 1
+          right = 2 * index + 2
+          n = len(self.array) 
 
-     def _sift_down(self,index):
-         left_child = 2 * index + 1
-         right_child = 2 * index + 2
+    
+          if left < n and self.array[left].freq < self.array[smallest].freq:
+             smallest = left
 
-         
+   
+          if right < n and self.array[right].freq < self.array[smallest].freq:
+             smallest = right
+
+    
+          if smallest != index:
+             self.array[index], self.array[smallest] = self.array[smallest], self.array[index]
+             self._sift_down(smallest) 
                
 
 
